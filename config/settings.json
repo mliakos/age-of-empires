@@ -1,0 +1,12 @@
+{
+    "gatheringRate": {
+        "food": 10,
+        "wood": 8,
+        "gold": 3,
+        "iron": 5
+    },
+    "gatheringInterval": 15,
+    "initialPeasants": 1000,
+    "movementCommands": ["left", "right", "up", "down"],
+    "firstRun": true
+}
