@@ -6,8 +6,8 @@ module.exports = (command, state, Gatherer) => {
 
 	if (
 		name.match(/[A-Z][0-9]/gi) &&
-		action == "gather" &&
-		Object.keys(state.inventory).includes(specialty)
+		action.toLowerCase() == "gather" &&
+		Object.keys(state.inventory).includes(specialty.toLowerCase())
 	) {
 		// TODO: Handle not enough peasants cases and precedence
 
@@ -23,7 +23,7 @@ module.exports = (command, state, Gatherer) => {
 				new Gatherer(`G${name.match(/[0-9]/g).join("")}`, specialty);
 			} else {
 				console.log(
-					"Peasant is already a gatherer, but you can still switch his specialty."
+					"Peasant is already a gatherer, but you can still switch his specialty by replaceing P with G."
 				);
 			}
 		}

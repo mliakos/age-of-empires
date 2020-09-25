@@ -6,11 +6,13 @@ const state = JSON.parse(fs.readFileSync("state.json", "utf-8"));
 
 // Initializing global state object
 global.STATE = JSON.parse(
-	fs.readFileSync("./sample/sampleState.json", "utf-8")
+	fs.readFileSync("../sample/sampleState.json", "utf-8")
 );
 
 // Imports
-const settings = JSON.parse(fs.readFileSync("config/settings.json", "utf-8"));
+const settings = JSON.parse(
+	fs.readFileSync("../config/settings.json", "utf-8")
+);
 const Peasant = require("./model/Peasant");
 const Gatherer = require("./model/Gatherer");
 const displayStats = require("./controller/commands/displayStats");
@@ -22,11 +24,12 @@ const gather = require("./controller/commands/gather");
 if (settings.firstRun) {
 	console.log("Welcome! Creating 1000 peasants...");
 	for (let i = 0; i < settings.initialPeasants; i++) {
-		global.STATE.activePeasants.push(new Peasant(`P${i + 1}`));
+		new Peasant(`P${i + 1}`);
 	}
+	console.log("Done!");
 
 	fs.writeFileSync(
-		"config/settings.json",
+		"../config/settings.json",
 		JSON.stringify({ ...settings, firstRun: false })
 	);
 }
@@ -60,6 +63,8 @@ else {
 	console.log("Loading total number of movements...");
 	// Retrieving saved "totalMoved" counter
 	global.STATE.totalMoved = state.totalMoved;
+
+	console.log("Done!");
 }
 
 // Handling commands

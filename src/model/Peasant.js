@@ -3,7 +3,7 @@ class Peasant {
 		this.name = name;
 
 		// Update state
-		global.STATE.activePeasants.push();
+		global.STATE.activePeasants.push(this);
 	}
 
 	move(direction) {

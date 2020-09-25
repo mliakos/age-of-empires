@@ -1,0 +1,11 @@
+{
+    "inventory": {
+        "food": 0,
+        "wood": 0,
+        "gold": 0,
+        "iron": 0
+    },
+    "activePeasants": [],
+    "activeGatherers": [],
+    "totalMoved": 0
+}

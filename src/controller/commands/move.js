@@ -14,7 +14,15 @@ module.exports = (command, settings) => {
 		const Peasant = global.STATE.activePeasants.find(
 			e => e.name.toLowerCase() == name.toLowerCase()
 		);
-		Peasant.move(direction);
+
+		// Verify that peasant exists (meaning index is not -1)
+		if (Peasant) {
+			Peasant.move(direction);
+		} else {
+			console.log(
+				`Peasant ${name} does not exist. He has probably been promoted to a gatherer.`
+			);
+		}
 	} else {
 		console.log("Error in command.");
 	}

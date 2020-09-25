@@ -1,7 +1,6 @@
 const fs = require("fs");
 
-const settings = JSON.parse(fs.readFileSync("config/settings.json"));
-const Peasant = require("../model/Peasant");
+const settings = JSON.parse(fs.readFileSync("../config/settings.json"));
 
 class Gatherer {
 	constructor(name, specialty) {
